@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: dashboard
+  datasource:
+    url: jdbc:postgresql://localhost:5432/intern_dash
+    username: ${DB_USER:app}
+    password: ${DB_PASSWORD:change-me}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Keycloak config placeholders
+keycloak:
+  issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8081/realms/interns}
+  client-id: ${KEYCLOAK_CLIENT_ID:dashboard-api}
+  client-secret: ${KEYCLOAK_CLIENT_SECRET:secret}
