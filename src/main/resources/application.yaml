@@ -6,8 +6,8 @@ spring:
     name: dashboard
   datasource:
     url: jdbc:postgresql://localhost:5432/intern_dash
-    username: ${DB_USER:app}
-    password: ${DB_PASSWORD:change-me}
+    username: ${PGUSER}
+    password: ${PGPASSWORD}
   jpa:
     hibernate:
       ddl-auto: update

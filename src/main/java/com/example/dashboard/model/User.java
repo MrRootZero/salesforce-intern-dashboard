@@ -1,6 +1,7 @@
 package com.example.dashboard.model;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -25,4 +26,12 @@ public class User {
     public void setRole(String role) { this.role = role; }
     public String getTrailheadIdentity() { return trailheadIdentity; }
     public void setTrailheadIdentity(String trailheadIdentity) { this.trailheadIdentity = trailheadIdentity; }
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_badges",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "badge_id")
+    )
+    private Set<Badge> badges = new HashSet<>();
 }

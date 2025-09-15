@@ -1,6 +1,10 @@
 package com.example.dashboard.model;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+
 
 @Entity
 @Table(name = "badges")
@@ -24,4 +28,7 @@ public class Badge {
     public void setCategory(String category) { this.category = category; }
     public Integer getPoints() { return points; }
     public void setPoints(Integer points) { this.points = points; }
+
+    @ManyToMany(mappedBy = "badges")
+    private Set<User> users = new HashSet<>();
 }
